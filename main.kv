@@ -1,0 +1,104 @@
+<MenuScreen>:
+    MDBoxLayout:
+        ben : ben.text
+        taste : taste
+        orientation: 'vertical'
+        size_hint: (1,1)
+        #pos_hint: none,none
+        pos_hint: {"top": 1, 'center_y': 0.5}
+        Image:
+            source: 'logo.png'
+            pos_hint: {"center_x": .5, "center_y": .5}
+            size_hint: 1, 1
+        MDBoxLayout:
+            orientation: 'vertical'
+            size_hint: 1,0.2
+            MDLabel:
+                text: "Benutzername"
+                size_hint: (0.8,0.8)
+                #halign: "center"
+                pos_hint: {'Center_x': 0.5, 'center_y': 0.5}
+            MDTextField:
+                id: ben
+                multiline: False
+                hint_text: "Haw Erkennung"
+                pos_hint: {'Center_x': 0.5, 'center_y': 0.5}
+            MDLabel:
+                text: "Passwort"
+                size_hint: (0.8,0.8)
+                pos_hint: {'Center_x': 0.5, 'center_y': 0.5}
+            MDTextField:
+                id: pas
+                multiline: False
+                hint_text: "Passwort"
+                pos_hint: {'Center_x': 0.5, 'center_y': 0.5}
+
+            MDRaisedButton:
+                id: taste
+                pos_hint: {'Center_x': 0.5, 'center_y': 0.5}
+                text: "Anmelden"
+                on_release:
+                    root.manager.current = "settings"
+                    #root.manager.current = "settings" if ben.text == "a" else "menu"
+                    root.manager.transition.direction = "right"
+
+<SettingsScreen>:
+    MDBoxLayout:
+        adaptive_height: True
+        md_bg_color: app.theme_cls.primary_color
+        size: root.width, root.height
+        orientation: "vertical"
+        size_hint: (1,1)
+        Image:
+            source: 'logo.png'
+            size_hint: 0.8, 0.8
+            halign: "center"
+        Image:
+            source: 'mec.png'
+            size_hint: 1, 1
+            halign: "center"
+        MDLabel:
+            text: "Bitte wählen Sie die Steuerung aus"
+            #ext_color: get_color_from_hex("#ffffff")
+            halign: "center"
+            font_style: "H6"
+            font_size: 32
+        MDGridLayout:
+            cols:2
+            MDIconButton:
+                align: 'center'
+                pos_hint: {'right': 1}
+                icon: "controller-classic"
+                #icon: "android"
+                user_font_size: "110sp"
+                text: "Manuell"
+                #size_hint:(0.1,0.1)
+                #halign: "center"
+                #text_color: get_color_from_hex("#ffffff")
+                #icon_color: get_color_from_hex("#ffffff")
+                #line_color: get_color_from_hex("#ffffff")
+                #md_bg_color: get_color_from_hex("#000adb")
+                font_size: 20
+            MDIconButton:
+                icon: "brain"
+                user_font_size: "110sp"
+                text: "KI"
+                #text_color: get_color_from_hex("#ffffff")
+                #icon_color: get_color_from_hex("#ffffff")
+                #line_color: get_color_from_hex("#ffffff")
+                #md_bg_color: get_color_from_hex("#000adb")
+                #font_size: 20
+                #padding: [5, 5]
+        MDIconButton:
+            icon: "logout"
+            user_font_size: "70sp"
+            text: "Abmelden"
+            #text_color: get_color_from_hex("#ffffff")
+            #icon_color: get_color_from_hex("#ffffff")
+            #line_color: get_color_from_hex("#ffffff")
+            #md_bg_color: get_color_from_hex("#000adb")
+            #font_size: 20
+            #padding: [5, 5]
+            on_press:
+                root.manager.current = "menu"
+                root.manager.transition.direction = "right"

@@ -6,13 +6,23 @@ from kivymd.uix.picker import MDDatePicker
 from kivy.lang import Builder
 from kivymd.uix.picker import MDThemePicker
 from kivy.properties import ObjectProperty
+from kivy.uix.image import Image
 from kivy.uix.screenmanager import ScreenManager, Screen
+from kivy.uix.scrollview import ScrollView
+import cv2
+import time
 
 class MenuScreen(Screen):
     pass
 
 class SettingsScreen(Screen):
     pass
+
+class ManuelScreen(Screen):
+    pass
+class KiScreen(Screen):
+    pass
+
 
 class MainApp(MDApp):
     ben = ObjectProperty()
@@ -22,8 +32,11 @@ class MainApp(MDApp):
         sm = ScreenManager()
         sm.add_widget(MenuScreen(name='menu'))
         sm.add_widget(SettingsScreen(name='settings'))
+        sm.add_widget(ManuelScreen(name='manuel'))
+        sm.add_widget(KiScreen(name='ki'))
 
         return sm
 
 if __name__ == "__main__":
     MainApp().run()
+

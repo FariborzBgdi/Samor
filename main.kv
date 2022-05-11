@@ -110,19 +110,18 @@
                 root.manager.transition.direction = "right"
 
 <ManuelScreen>:
-    ScrollView:
+    ScrollView:             #funktioniert nicht
+        size_hint: 1,None
+        height: 250
     MDBoxLayout:
         orientation: "vertical"
-        adaptive_height: True
-        md_bg_color: app.theme_cls.primary_color
-        size: root.width, root.height
-        size_hint: (1,1)
+        #md_bg_color: app.theme_cls.primary_color
         Image:
             source: 'logo.png'
             pos_hint: {"center_x": .5, "center_y": .5}
             size_hint: .5, .5
         MDBoxLayout:
-            #orientation: "horizontal"
+           #orientation: "horizontal"
             MDIconButton:
                 icon: "arrow-top-left"
                 user_font_size: "70sp"
@@ -160,7 +159,6 @@
             on_press:
                 root.manager.current = "settings"
                 root.manager.transition.direction = "right"
-
 
 <KiScreen>:
     MDBoxLayout:

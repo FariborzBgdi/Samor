@@ -111,25 +111,49 @@
 
 <ManuelScreen>:
     MDBoxLayout:
+        orientation: "vertical"
+        adaptive_height: True
+        md_bg_color: app.theme_cls.primary_color
+        size: root.width, root.height
+        size_hint: (1,1)
         Image:
             source: 'logo.png'
             pos_hint: {"center_x": .5, "center_y": .5}
             size_hint: .5, .5
-        MDIconButton:
-            icon: "arrow-top-left-bold-box-outline"
-            user_font_size: "70sp"
-            #pos_hint: {"center_x": 1, "center_y": .5}
-        MDIconButton:
-            icon: "arrow-up-bold-box-outline"
-            pos_hint: {"center_x": .5, "center_y": .5}
-            user_font_size: "70sp"
-        MDIconButton:
-            icon: "arrow-top-right-bold-box-outline"
-            user_font_size: "70sp"
-        Image:
-            source: 'Mecanum.png'
-            pos_hint: {"center_x": .5, "center_y": .5}
-            size_hint: .6, .6
+        MDBoxLayout:
+            orientation: "horizontal"
+            MDIconButton:
+                icon: "arrow-top-left"
+                user_font_size: "70sp"
+            MDIconButton:
+                icon: "arrow-up"
+                user_font_size: "70sp"
+            MDIconButton:
+                icon: "arrow-top-right"
+                user_font_size: "70sp"
+        MDBoxLayout:
+            orientation: "horizontal"
+            MDIconButton:
+                icon: "arrow-left"
+                user_font_size: "70sp"
+            Image:
+                source: 'Mecanum.png'
+                pos_hint: {"center_x": .5, "center_y": .5}
+                size_hint: .4, .4
+            MDIconButton:
+                icon: "arrow-right"
+                user_font_size: "70sp"
+        MDBoxLayout:
+            orientation: "horizontal"
+            MDIconButton:
+                icon: "arrow-bottom-left"
+                user_font_size: "70sp"
+            MDIconButton:
+                icon: "arrow-down"
+                user_font_size: "70sp"
+            MDIconButton:
+                icon: "arrow-bottom-right"
+                user_font_size: "70sp"
         MDIconButton:
             icon: "wrench"
             user_font_size: "70sp"

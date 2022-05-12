@@ -66,10 +66,9 @@
         MDGridLayout:
             cols:2
             MDIconButton:
-                align: 'center'
+                size_hint: .5, .5
                 pos_hint: {'right': 1}
                 icon: "controller-classic"
-                #icon: "android"
                 user_font_size: "110sp"
                 text: "Manuell"
                 on_release:
@@ -83,6 +82,7 @@
                 #md_bg_color: get_color_from_hex("#000adb")
                 font_size: 20
             MDIconButton:
+                size_hint: .5, .5
                 icon: "brain"
                 user_font_size: "110sp"
                 text: "KI"
@@ -97,7 +97,8 @@
                 #padding: [5, 5]
         MDIconButton:
             icon: "logout"
-            user_font_size: "70sp"
+            size_hint: 1, .8
+            user_font_size: "50sp"
             text: "Abmelden"
             #text_color: get_color_from_hex("#ffffff")
             #icon_color: get_color_from_hex("#ffffff")
@@ -115,46 +116,57 @@
         height: 250
     MDBoxLayout:
         orientation: "vertical"
-        #md_bg_color: app.theme_cls.primary_color
+        md_bg_color: app.theme_cls.primary_color
         Image:
             source: 'logo.png'
             pos_hint: {"center_x": .5, "center_y": .5}
-            size_hint: .5, .5
         MDBoxLayout:
+            #adaptive_size: True
            #orientation: "horizontal"
             MDIconButton:
                 icon: "arrow-top-left"
-                user_font_size: "70sp"
+                user_font_size: "60sp"
+                size_hint: .8, .5
             MDIconButton:
                 icon: "arrow-up"
-                user_font_size: "70sp"
+                user_font_size: "60sp"
+                size_hint: .8, .5
             MDIconButton:
                 icon: "arrow-top-right"
-                user_font_size: "70sp"
+                user_font_size: "60sp"
+                size_hint: .8, .5
         MDBoxLayout:
             orientation: "horizontal"
             MDIconButton:
                 icon: "arrow-left"
-                user_font_size: "70sp"
+                user_font_size: "60sp"
+                size_hint: .8, .5
             Image:
                 source: 'Mecanum.png'
+                size_hint: 1, 1.2
+                pos_hint: {'center_x':0.5, 'center_y':0.25}
+                allow_stretch: True
             MDIconButton:
                 icon: "arrow-right"
-                user_font_size: "70sp"
+                user_font_size: "60sp"
+                size_hint: .8, .5
         MDBoxLayout:
             orientation: "horizontal"
             MDIconButton:
                 icon: "arrow-bottom-left"
-                user_font_size: "70sp"
+                user_font_size: "60sp"
+                size_hint: .8, .5
             MDIconButton:
                 icon: "arrow-down"
-                user_font_size: "70sp"
+                user_font_size: "60sp"
+                size_hint: .8, .5
             MDIconButton:
                 icon: "arrow-bottom-right"
-                user_font_size: "70sp"
+                user_font_size: "60sp"
+                size_hint: .8, .5
         MDIconButton:
             icon: "wrench"
-            user_font_size: "70sp"
+            user_font_size: "60sp"
             text: "Zurück zur Auswahl"
             on_press:
                 root.manager.current = "settings"
@@ -172,11 +184,11 @@
             halign: "center"
             font_style: "H6"
             font_size: 32
-        Camera:
-            id: camera
-            resolution: (640, 480)
-            height: '48dp'
-            play: True
+        #Camera:
+            #id: camera
+            #resolution: (640, 480)
+            #height: '48dp'
+            #play: True
         MDIconButton:
             icon: "wrench"
             user_font_size: "70sp"

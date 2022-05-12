@@ -2,9 +2,7 @@ from kivy.app import App
 from kivymd.app import MDApp
 from kivymd.theming import ThemeManager
 from kivymd.uix.label import MDLabel
-from kivymd.uix.picker import MDDatePicker
-from kivy.lang import Builder
-from kivymd.uix.picker import MDThemePicker
+
 from kivy.properties import ObjectProperty
 from kivy.uix.image import Image
 from kivy.uix.screenmanager import ScreenManager, Screen

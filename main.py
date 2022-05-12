@@ -7,7 +7,7 @@ from kivy.properties import ObjectProperty
 from kivy.uix.image import Image
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.uix.scrollview import ScrollView
-import cv2
+import cv2       #für die Kamera
 import time
 
 class MenuScreen(Screen):

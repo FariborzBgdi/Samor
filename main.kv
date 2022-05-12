@@ -122,7 +122,6 @@
             pos_hint: {"center_x": .5, "center_y": .5}
         MDBoxLayout:
             #adaptive_size: True
-           #orientation: "horizontal"
             MDIconButton:
                 icon: "arrow-top-left"
                 user_font_size: "60sp"
@@ -164,6 +163,13 @@
                 icon: "arrow-bottom-right"
                 user_font_size: "60sp"
                 size_hint: .8, .5
+        MDBoxLayout:
+            orientation: "horizontal"
+            md_bg_color: app.theme_cls.primary_color
+            MDIconButton:
+                icon: "arrow-bottom-left"
+                user_font_size: "60sp"
+                size_hint: .8, .5
         MDIconButton:
             icon: "wrench"
             user_font_size: "60sp"
@@ -171,6 +177,8 @@
             on_press:
                 root.manager.current = "settings"
                 root.manager.transition.direction = "right"
+
+
 
 <KiScreen>:
     MDBoxLayout:

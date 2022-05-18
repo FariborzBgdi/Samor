@@ -10,6 +10,7 @@ from kivy.uix.scrollview import ScrollView
 import cv2
 import time
 
+
 class MenuScreen(Screen):
     pass
 

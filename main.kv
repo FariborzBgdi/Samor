@@ -39,167 +39,212 @@
                 text: "Anmelden"
                 on_release:
                     root.manager.current = "settings"
-                    #root.manager.current = "settings" if ben.text == "a" else "menu"
+                    #root.manager.current = "setting" if ben.text == "a" else "menu"
                     root.manager.transition.direction = "right"
 
 <SettingsScreen>:
-    MDBoxLayout:
-        adaptive_height: True
-        md_bg_color: app.theme_cls.primary_color
-        size: root.width, root.height
-        orientation: "vertical"
-        size_hint: (1,1)
-        Image:
-            source: 'logo.png'
-            size_hint: 0.8, 0.8
-            halign: "center"
-        Image:
-            source: 'mec.png'
-            size_hint: 1, 1
-            halign: "center"
-        MDLabel:
-            text: "Bitte wählen Sie die Steuerung aus"
-            #ext_color: get_color_from_hex("#ffffff")
-            halign: "center"
-            font_style: "H6"
-            font_size: 32
-        MDGridLayout:
-            cols:2
+    MDBottomNavigation:
+        text_color_active: 0, 0, 0, 1
+        MDBottomNavigationItem:
+            name: "mecanum"
+            text: "Mecanum"
+            icon: "controller-classic"
+
+            MDBoxLayout:
+                orientation: "vertical"
+                md_bg_color: app.theme_cls.primary_color
+                Image:
+                    source: 'logo.png'
+                    pos_hint: {"center_x": .5, "center_y": .5}
+                MDBoxLayout:
+                    #adaptive_size: True
+                    MDIconButton:
+                        icon: "arrow-top-left"
+                        user_font_size: "60sp"
+                        size_hint: .8, .5
+                    MDIconButton:
+                        icon: "arrow-up"
+                        user_font_size: "60sp"
+                        size_hint: .8, .5
+                    MDIconButton:
+                        icon: "arrow-top-right"
+                        user_font_size: "60sp"
+                        size_hint: .8, .5
+                MDBoxLayout:
+                    orientation: "horizontal"
+                    MDIconButton:
+                        icon: "arrow-left"
+                        user_font_size: "60sp"
+                        size_hint: .8, .5
+                    Image:
+                        source: 'Mecanum.png'
+                        size_hint: 1, 1.2
+                        pos_hint: {'center_x':0.5, 'center_y':0.25}
+                        allow_stretch: True
+                    MDIconButton:
+                        icon: "arrow-right"
+                        user_font_size: "60sp"
+                        size_hint: .8, .5
+                MDBoxLayout:
+                    orientation: "horizontal"
+                    MDIconButton:
+                        icon: "arrow-bottom-left"
+                        user_font_size: "60sp"
+                        size_hint: .8, .5
+                    MDIconButton:
+                        icon: "arrow-down"
+                        user_font_size: "60sp"
+                        size_hint: .8, .5
+                    MDIconButton:
+                        icon: "arrow-bottom-right"
+                        user_font_size: "60sp"
+                        size_hint: .8, .5
+                MDBoxLayout:
+                    orientation: "horizontal"
+                    md_bg_color: app.theme_cls.primary_color
+                    MDIconButton:
+                        icon: "arrow-bottom-left"
+                        user_font_size: "60sp"
+                        size_hint: .8, .5
+                MDIconButton:
+                    icon: "logout"
+                    user_font_size: "60sp"
+                    text: "Zurück zur Auswahl"
+                    on_press:
+                        root.manager.current = "menu"
+                        root.manager.transition.direction = "right"
+
+        MDBottomNavigationItem:
+            name: "roboterarm"
+            text: "Roboterarm"
+            icon: "robot-industrial-outline"
+
+            MDBoxLayout:
+                orientation: "horizontal"
+                md_bg_color: app.theme_cls.primary_color
+                Image:
+                    source: 'roboterarm.png'
+                    size_hint: 1, 1
+                    pos_hint: {'center_x':1, 'center_y':0.5}
+                    allow_stretch: True
+                MDBoxLayout:
+                    orientation: "vertical"
+                    MDIconButton:
+                        icon: "arrow-left"
+                        user_font_size: "60sp"
+                        size_hint: .8, .5
+                    MDIconButton:
+                        icon: "arrow-left"
+                        user_font_size: "60sp"
+                        size_hint: .8, .5
+                    MDIconButton:
+                        icon: "arrow-left"
+                        user_font_size: "60sp"
+                        size_hint: .8, .5
+                    MDIconButton:
+                        icon: "arrow-left"
+                        user_font_size: "60sp"
+                        size_hint: .8, .5
+                    MDIconButton:
+                        icon: "arrow-left"
+                        user_font_size: "60sp"
+                        size_hint: .8, .5
+                    MDIconButton:
+                        icon: "arrow-left"
+                        user_font_size: "60sp"
+                        size_hint: .8, .5
+                MDBoxLayout:
+                    orientation: "vertical"
+                    Label:
+                        text: 'Grab'
+                    Label:
+                        text: 'Spin grab'
+                    Label:
+                        text: 'joint 3'
+                    Label:
+                        text: 'joint 2'
+                    Label:
+                        text: 'joint 1'
+                    Label:
+                        text: 'turntable'
+                MDBoxLayout:
+                    orientation: "vertical"
+                    MDIconButton:
+                        icon: "arrow-right"
+                        user_font_size: "60sp"
+                        size_hint: .8, .5
+                    MDIconButton:
+                        icon: "arrow-right"
+                        user_font_size: "60sp"
+                        size_hint: .8, .5
+                    MDIconButton:
+                        icon: "arrow-right"
+                        user_font_size: "60sp"
+                        size_hint: .8, .5
+                    MDIconButton:
+                        icon: "arrow-right"
+                        user_font_size: "60sp"
+                        size_hint: .8, .5
+                    MDIconButton:
+                        icon: "arrow-right"
+                        user_font_size: "60sp"
+                        size_hint: .8, .5
+                    MDIconButton:
+                        icon: "arrow-right"
+                        user_font_size: "60sp"
+                        size_hint: .8, .5
+
             MDIconButton:
-                size_hint: .5, .5
-                pos_hint: {'right': 1}
-                icon: "controller-classic"
-                user_font_size: "110sp"
-                text: "Manuell"
-                on_release:
-                    root.manager.current = "manuel"
+                icon: "logout"
+                user_font_size: "60sp"
+                text: "Zurück zur Auswahl"
+                on_press:
+                    root.manager.current = "menu"
                     root.manager.transition.direction = "right"
-                #size_hint:(0.1,0.1)
-                #text_color: get_color_from_hex("#ffffff")
-                #icon_color: get_color_from_hex("#ffffff")
-                #line_color: get_color_from_hex("#ffffff")
-                #md_bg_color: get_color_from_hex("#000adb")
-                font_size: 20
-            MDIconButton:
-                size_hint: .5, .5
-                icon: "brain"
-                user_font_size: "110sp"
-                text: "KI"
-                on_release:
-                    root.manager.current = "ki"
-                    root.manager.transition.direction = "left"
-                #text_color: get_color_from_hex("#ffffff")
-                #icon_color: get_color_from_hex("#ffffff")
-                #line_color: get_color_from_hex("#ffffff")
-                #md_bg_color: get_color_from_hex("#000adb")
-                #font_size: 20
-                #padding: [5, 5]
-        MDIconButton:
-            icon: "logout"
-            size_hint: 1, .8
-            user_font_size: "50sp"
-            text: "Abmelden"
-            #text_color: get_color_from_hex("#ffffff")
-            #icon_color: get_color_from_hex("#ffffff")
-            #line_color: get_color_from_hex("#ffffff")
-            #md_bg_color: get_color_from_hex("#000adb")
-            #font_size: 20
-            #padding: [5, 5]
-            on_press:
-                root.manager.current = "menu"
-                root.manager.transition.direction = "right"
 
-<ManuelScreen>:
-    ScrollView:             #funktioniert nicht
-        size_hint: 1,None
-        height: 250
-    MDBoxLayout:
-        orientation: "vertical"
-        md_bg_color: app.theme_cls.primary_color
-        Image:
-            source: 'logo.png'
-            pos_hint: {"center_x": .5, "center_y": .5}
-        MDBoxLayout:
-            #adaptive_size: True
-            MDIconButton:
-                icon: "arrow-top-left"
-                user_font_size: "60sp"
-                size_hint: .8, .5
-            MDIconButton:
-                icon: "arrow-up"
-                user_font_size: "60sp"
-                size_hint: .8, .5
-            MDIconButton:
-                icon: "arrow-top-right"
-                user_font_size: "60sp"
-                size_hint: .8, .5
-        MDBoxLayout:
-            orientation: "horizontal"
-            MDIconButton:
-                icon: "arrow-left"
-                user_font_size: "60sp"
-                size_hint: .8, .5
-            Image:
-                source: 'Mecanum.png'
-                size_hint: 1, 1.2
-                pos_hint: {'center_x':0.5, 'center_y':0.25}
-                allow_stretch: True
-            MDIconButton:
-                icon: "arrow-right"
-                user_font_size: "60sp"
-                size_hint: .8, .5
-        MDBoxLayout:
-            orientation: "horizontal"
-            MDIconButton:
-                icon: "arrow-bottom-left"
-                user_font_size: "60sp"
-                size_hint: .8, .5
-            MDIconButton:
-                icon: "arrow-down"
-                user_font_size: "60sp"
-                size_hint: .8, .5
-            MDIconButton:
-                icon: "arrow-bottom-right"
-                user_font_size: "60sp"
-                size_hint: .8, .5
-        MDBoxLayout:
-            orientation: "horizontal"
-            md_bg_color: app.theme_cls.primary_color
-            MDIconButton:
-                icon: "arrow-bottom-left"
-                user_font_size: "60sp"
-                size_hint: .8, .5
-        MDIconButton:
-            icon: "wrench"
-            user_font_size: "60sp"
-            text: "Zurück zur Auswahl"
-            on_press:
-                root.manager.current = "settings"
-                root.manager.transition.direction = "right"
+        MDBottomNavigationItem:
+            name: "ki"
+            text: "KI"
+            icon: "brain"
 
+            MDBoxLayout:
+                adaptive_height: True
+                md_bg_color: app.theme_cls.primary_color
+                size: root.width, root.height
+                orientation: "vertical"
+                size_hint: (1,1)
+                MDLabel:
+                    text: "Es wurde ein/e ... erkannt"
+                    halign: "center"
+                    font_style: "H6"
+                    font_size: 32
+                #Camera:
+                 #   id: camera
+                  #  resolution: (640, 480)
+                   # height: '48dp'
+                    #play: False
+                #ToggleButton:
+                 #   text: 'Play'
+                  #  on_press: camera.play = not camera.play
+                   # size_hint_y: None
+                    #height: '48dp'
+                MDIconButton:
+                    icon: "logout"
+                    user_font_size: "70sp"
+                    text: "Zurück zur Auswahl"
+                    on_press:
+                        root.manager.current = "menu"
+                        root.manager.transition.direction = "right"
 
+        MDBottomNavigationItem:
+            name: "settings"
+            text: "settings"
+            icon: "cog"
 
-<KiScreen>:
-    MDBoxLayout:
-        adaptive_height: True
-        md_bg_color: app.theme_cls.primary_color
-        size: root.width, root.height
-        orientation: "vertical"
-        size_hint: (1,1)
-        MDLabel:
-            text: "Es wurde ein/e ... erkannt"
-            halign: "center"
-            font_style: "H6"
-            font_size: 32
-        #Camera:
-            #id: camera
-            #resolution: (640, 480)
-            #height: '48dp'
-            #play: True
-        MDIconButton:
-            icon: "wrench"
-            user_font_size: "70sp"
-            text: "Zurück zur Auswahl"
-            on_press:
-                root.manager.current = "settings"
-                root.manager.transition.direction = "right"
+            MDIconButton:
+                icon: "logout"
+                user_font_size: "70sp"
+                text: "Zurück zur Auswahl"
+                on_press:
+                    root.manager.current = "menu"
+                    root.manager.transition.direction = "right"

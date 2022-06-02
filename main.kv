@@ -103,8 +103,14 @@
                     orientation: "horizontal"
                     md_bg_color: app.theme_cls.primary_color
                     MDIconButton:
-                        icon: "arrow-bottom-left"
+                        icon: "arrow-u-down-left"
                         user_font_size: "60sp"
+                        allow_stretch: True
+                        size_hint: .8, .5
+                    MDIconButton:
+                        icon: "arrow-u-down-right"
+                        user_font_size: "60sp"
+                        allow_stretch: True
                         size_hint: .8, .5
                 MDIconButton:
                     icon: "logout"
@@ -123,9 +129,9 @@
                 orientation: "horizontal"
                 md_bg_color: app.theme_cls.primary_color
                 Image:
-                    source: 'roboterarm.png'
-                    size_hint: 1, 1
-                    pos_hint: {'center_x':1, 'center_y':0.5}
+                    source: 'Arm.png'
+                    size_hint: 2, 2
+                    pos_hint: {'center_x':1, 'center_y':.6}
                     allow_stretch: True
                 MDBoxLayout:
                     orientation: "vertical"
@@ -157,16 +163,22 @@
                     orientation: "vertical"
                     Label:
                         text: 'Grab'
+                        font_size: '28sp'
                     Label:
                         text: 'Spin grab'
+                        font_size: '28sp'
                     Label:
                         text: 'joint 3'
+                        font_size: '28sp'
                     Label:
                         text: 'joint 2'
+                        font_size: '28sp'
                     Label:
                         text: 'joint 1'
+                        font_size: '28sp'
                     Label:
                         text: 'turntable'
+                        font_size: '28sp'
                 MDBoxLayout:
                     orientation: "vertical"
                     MDIconButton:
@@ -218,16 +230,21 @@
                     halign: "center"
                     font_style: "H6"
                     font_size: 32
-                #Camera:
-                 #   id: camera
-                  #  resolution: (640, 480)
-                   # height: '48dp'
-                    #play: False
-                #ToggleButton:
-                 #   text: 'Play'
-                  #  on_press: camera.play = not camera.play
-                   # size_hint_y: None
-                    #height: '48dp'
+                Camera:
+                    id: camera
+                    resolution: (640, 480)
+                    height: '48dp'
+                    play: False
+                ToggleButton:
+                    text: 'Play'
+                    on_press: camera.play = not camera.play
+                    size_hint_y: None
+                    height: '48dp'
+                Button:
+                    text: 'Capture'
+                    size_hint_y: None
+                    height: '48dp'
+                    on_press: root.capture()
                 MDIconButton:
                     icon: "logout"
                     user_font_size: "70sp"

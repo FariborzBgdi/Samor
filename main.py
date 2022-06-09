@@ -10,6 +10,7 @@ from kivy.uix.scrollview import ScrollView
 import cv2
 import time
 
+import mqtt_module as mqtt_client
 
 class MenuScreen(Screen):
     pass
@@ -20,6 +21,9 @@ class SettingsScreen(Screen):
         timestr = time.strftime("%Y%m%d_%H%M%S")
         camera.export_to_png("IMG_{}.png".format(timestr))
         print("Captured")
+    def mecanum_move(self, msg):
+        mqtt_client.publish(mqtt_client.TOPIC_MECANUM, msg)
+        print("published to mecanum: " + msg)
 
 class ManuelScreen(Screen):
     pass
@@ -40,5 +44,6 @@ class MainApp(MDApp):
         return sm
 
 if __name__ == "__main__":
+    mqtt_client.connect_to_broker()
     MainApp().run()
 

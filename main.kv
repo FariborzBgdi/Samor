@@ -62,20 +62,36 @@
                         icon: "arrow-top-left"
                         user_font_size: "60sp"
                         size_hint: .8, .5
+                        on_press:
+                            root.mecanum_move("FL")
+                        on_release:
+                            root.mecanum_move("ST")
                     MDIconButton:
                         icon: "arrow-up"
                         user_font_size: "60sp"
                         size_hint: .8, .5
+                        on_press:
+                            root.mecanum_move("FW")
+                        on_release:
+                            root.mecanum_move("ST")
                     MDIconButton:
                         icon: "arrow-top-right"
                         user_font_size: "60sp"
                         size_hint: .8, .5
+                        on_press:
+                            root.mecanum_move("FR")
+                        on_release:
+                            root.mecanum_move("ST")
                 MDBoxLayout:
                     orientation: "horizontal"
                     MDIconButton:
                         icon: "arrow-left"
                         user_font_size: "60sp"
                         size_hint: .8, .5
+                        on_press:
+                            root.mecanum_move("L")
+                        on_release:
+                            root.mecanum_move("ST")
                     Image:
                         source: 'Mecanum.png'
                         size_hint: 1, 1.2
@@ -85,20 +101,36 @@
                         icon: "arrow-right"
                         user_font_size: "60sp"
                         size_hint: .8, .5
+                        on_press:
+                            root.mecanum_move("R")
+                        on_release:
+                            root.mecanum_move("ST")
                 MDBoxLayout:
                     orientation: "horizontal"
                     MDIconButton:
                         icon: "arrow-bottom-left"
                         user_font_size: "60sp"
                         size_hint: .8, .5
+                        on_press:
+                            root.mecanum_move("BL")
+                        on_release:
+                            root.mecanum_move("ST")
                     MDIconButton:
                         icon: "arrow-down"
                         user_font_size: "60sp"
                         size_hint: .8, .5
+                        on_press:
+                            root.mecanum_move("BW")
+                        on_release:
+                            root.mecanum_move("ST")
                     MDIconButton:
                         icon: "arrow-bottom-right"
                         user_font_size: "60sp"
                         size_hint: .8, .5
+                        on_press:
+                            root.mecanum_move("BR")
+                        on_release:
+                            root.mecanum_move("ST")
                 MDBoxLayout:
                     orientation: "horizontal"
                     md_bg_color: app.theme_cls.primary_color
@@ -107,11 +139,19 @@
                         user_font_size: "60sp"
                         allow_stretch: True
                         size_hint: .8, .5
+                        on_press:
+                            root.mecanum_move("RL")
+                        on_release:
+                            root.mecanum_move("ST")
                     MDIconButton:
                         icon: "arrow-u-down-right"
                         user_font_size: "60sp"
                         allow_stretch: True
                         size_hint: .8, .5
+                        on_press:
+                            root.mecanum_move("RR")
+                        on_release:
+                            root.mecanum_move("ST")
                 MDIconButton:
                     icon: "logout"
                     user_font_size: "60sp"

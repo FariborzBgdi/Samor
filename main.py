@@ -49,6 +49,5 @@ class MainApp(MDApp):
         return sm
 
 if __name__ == "__main__":
-    mqtt_client.connect_to_broker()
+    #mqtt_client.connect_to_broker()
     MainApp().run()
-

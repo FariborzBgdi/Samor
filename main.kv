@@ -1,5 +1,3 @@
-#:kivy 2.1.0
-
 <MenuScreen>:
     MDBoxLayout:
         ben : ben.text
@@ -172,23 +170,9 @@
                 md_bg_color: app.theme_cls.primary_color
                 Image:
                     source: 'Arm.png'
-                    size_hint: .8, .2
+                    size_hint: 2, 3
                     pos_hint: {'center_x':1, 'center_y':.6}
                     allow_stretch: True
-                MDIconButton:
-                    icon: "refresh-auto"
-                    user_font_size: "60sp"
-                    size_hint: .2, .1
-                    on_press:
-                        root.manipulator_move("StartPos")
-                MDBoxLayout:
-                    orientation: "vertical"
-                    MDIconButton:
-                        icon: "parking"
-                        user_font_size: "60sp"
-                        size_hint: .2, .1
-                        on_press:
-                            root.manipulator_move("Saus")
                 MDBoxLayout:
                     orientation: "vertical"
                     MDIconButton:
@@ -285,14 +269,25 @@
                         size_hint: .8, .5
                         on_press:
                             root.manipulator_move("S1-")
-
-            MDIconButton:
-                icon: "logout"
-                user_font_size: "60sp"
-                text: "Zurück zur Auswahl"
-                on_press:
-                    root.manager.current = "menu"
-                    root.manager.transition.direction = "right"
+            MDBoxLayout:
+                orientation: "horizontal"
+                MDIconButton:
+                    icon: "logout"
+                    user_font_size: "60sp"
+                    text: "Zurück zur Auswahl"
+                    on_press:
+                        root.manager.current = "menu"
+                        root.manager.transition.direction = "right"
+                MDIconButton:
+                    icon: "play-circle"
+                    user_font_size: "60sp"
+                    on_press:
+                        root.manipulator_move("StartPos")
+                MDIconButton:
+                    icon: "power-sleep"
+                    user_font_size: "60sp"
+                    on_press:
+                        root.manipulator_move("Saus")
 
         MDBottomNavigationItem:
             name: "ki"

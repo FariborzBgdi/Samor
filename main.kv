@@ -1,3 +1,5 @@
+#:kivy 2.1.0
+
 <MenuScreen>:
     MDBoxLayout:
         ben : ben.text
@@ -170,35 +172,61 @@
                 md_bg_color: app.theme_cls.primary_color
                 Image:
                     source: 'Arm.png'
-                    size_hint: 2, 2
+                    size_hint: .8, .2
                     pos_hint: {'center_x':1, 'center_y':.6}
                     allow_stretch: True
+                MDIconButton:
+                    icon: "refresh-auto"
+                    user_font_size: "60sp"
+                    size_hint: .2, .1
+                    on_press:
+                        root.manipulator_move("StartPos")
+                MDBoxLayout:
+                    orientation: "vertical"
+                    MDIconButton:
+                        icon: "parking"
+                        user_font_size: "60sp"
+                        size_hint: .2, .1
+                        on_press:
+                            root.manipulator_move("Saus")
                 MDBoxLayout:
                     orientation: "vertical"
                     MDIconButton:
                         icon: "arrow-left"
                         user_font_size: "60sp"
                         size_hint: .8, .5
+                        on_press:
+                            root.manipulator_move("S6+")
                     MDIconButton:
                         icon: "arrow-left"
                         user_font_size: "60sp"
                         size_hint: .8, .5
+                        on_press:
+                            root.manipulator_move("S5+")
+                    MDIconButton:
+                        icon: "arrow-up"
+                        user_font_size: "60sp"
+                        size_hint: .8, .5
+                        on_press:
+                            root.manipulator_move("S4+")
+                    MDIconButton:
+                        icon: "arrow-up"
+                        user_font_size: "60sp"
+                        size_hint: .8, .5
+                        on_press:
+                            root.manipulator_move("S3+")
+                    MDIconButton:
+                        icon: "arrow-up"
+                        user_font_size: "60sp"
+                        size_hint: .8, .5
+                        on_press:
+                            root.manipulator_move("S2+")
                     MDIconButton:
                         icon: "arrow-left"
                         user_font_size: "60sp"
                         size_hint: .8, .5
-                    MDIconButton:
-                        icon: "arrow-left"
-                        user_font_size: "60sp"
-                        size_hint: .8, .5
-                    MDIconButton:
-                        icon: "arrow-left"
-                        user_font_size: "60sp"
-                        size_hint: .8, .5
-                    MDIconButton:
-                        icon: "arrow-left"
-                        user_font_size: "60sp"
-                        size_hint: .8, .5
+                        on_press:
+                            root.manipulator_move("S1+")
                 MDBoxLayout:
                     orientation: "vertical"
                     Label:
@@ -225,26 +253,38 @@
                         icon: "arrow-right"
                         user_font_size: "60sp"
                         size_hint: .8, .5
+                        on_press:
+                            root.manipulator_move("S6-")
                     MDIconButton:
                         icon: "arrow-right"
                         user_font_size: "60sp"
                         size_hint: .8, .5
+                        on_press:
+                            root.manipulator_move("S5-")
+                    MDIconButton:
+                        icon: "arrow-down"
+                        user_font_size: "60sp"
+                        size_hint: .8, .5
+                        on_press:
+                            root.manipulator_move("S4-")
+                    MDIconButton:
+                        icon: "arrow-down"
+                        user_font_size: "60sp"
+                        size_hint: .8, .5
+                        on_press:
+                            root.manipulator_move("S3-")
+                    MDIconButton:
+                        icon: "arrow-down"
+                        user_font_size: "60sp"
+                        size_hint: .8, .5
+                        on_press:
+                            root.manipulator_move("S2-")
                     MDIconButton:
                         icon: "arrow-right"
                         user_font_size: "60sp"
                         size_hint: .8, .5
-                    MDIconButton:
-                        icon: "arrow-right"
-                        user_font_size: "60sp"
-                        size_hint: .8, .5
-                    MDIconButton:
-                        icon: "arrow-right"
-                        user_font_size: "60sp"
-                        size_hint: .8, .5
-                    MDIconButton:
-                        icon: "arrow-right"
-                        user_font_size: "60sp"
-                        size_hint: .8, .5
+                        on_press:
+                            root.manipulator_move("S1-")
 
             MDIconButton:
                 icon: "logout"

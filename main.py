@@ -21,9 +21,14 @@ class SettingsScreen(Screen):
         timestr = time.strftime("%Y%m%d_%H%M%S")
         camera.export_to_png("IMG_{}.png".format(timestr))
         print("Captured")
+
     def mecanum_move(self, msg):
         mqtt_client.publish(mqtt_client.TOPIC_MECANUM, msg)
         print("published to mecanum: " + msg)
+
+    def manipulator_move(self, msg):
+        mqtt_client.publish(mqtt_client.TOPIC_MANIPULATOR, msg)
+        print("published to manipulator: " + msg)
 
 class ManuelScreen(Screen):
     pass

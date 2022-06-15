@@ -152,13 +152,6 @@
                             root.mecanum_move("RR")
                         on_release:
                             root.mecanum_move("ST")
-                MDIconButton:
-                    icon: "logout"
-                    user_font_size: "60sp"
-                    text: "Zurück zur Auswahl"
-                    on_press:
-                        root.manager.current = "menu"
-                        root.manager.transition.direction = "right"
 
         MDBottomNavigationItem:
             name: "roboterarm"
@@ -272,13 +265,6 @@
             MDBoxLayout:
                 orientation: "horizontal"
                 MDIconButton:
-                    icon: "logout"
-                    user_font_size: "60sp"
-                    text: "Zurück zur Auswahl"
-                    on_press:
-                        root.manager.current = "menu"
-                        root.manager.transition.direction = "right"
-                MDIconButton:
                     icon: "play-circle"
                     user_font_size: "60sp"
                     on_press:
@@ -299,15 +285,9 @@
                 md_bg_color: app.theme_cls.primary_color
                 size: root.width, root.height
                 orientation: "vertical"
-                size_hint: (1,1)
-                MDLabel:
-                    text: "Es wurde ein/e ... erkannt"
-                    halign: "center"
-                    font_style: "H6"
-                    font_size: 32
                 Camera:
                     id: camera
-                    resolution: (640, 480)
+                    resolution: (1920, 1080)
                     height: '48dp'
                     play: False
                 ToggleButton:
@@ -320,23 +300,43 @@
                     size_hint_y: None
                     height: '48dp'
                     on_press: root.capture()
-                MDIconButton:
-                    icon: "logout"
-                    user_font_size: "70sp"
-                    text: "Zurück zur Auswahl"
-                    on_press:
-                        root.manager.current = "menu"
-                        root.manager.transition.direction = "right"
 
         MDBottomNavigationItem:
             name: "settings"
-            text: "settings"
+            text: "Settings/Logout"
             icon: "cog"
-
-            MDIconButton:
-                icon: "logout"
-                user_font_size: "70sp"
-                text: "Zurück zur Auswahl"
-                on_press:
-                    root.manager.current = "menu"
-                    root.manager.transition.direction = "right"
+            MDBoxLayout:
+                adaptive_height: True
+                md_bg_color: app.theme_cls.primary_color
+                size: root.width, root.height
+                orientation: "vertical"
+                Label:
+                    text: 'BROKER_ADDRESS = 192.168.0.1'
+                    font_size: '20sp'
+                MDBoxLayout:
+                    orientation: "horizontal"
+                    Label:
+                        text: 'Raspberry Pi Power'
+                        font_size: '30sp'
+                        size_hint: .8, .8
+                    MDSwitch:
+                        width: dp(64)
+                        size_hint: .2, .8
+                MDBoxLayout:
+                    orientation: "horizontal"
+                    Label:
+                        text: 'Verbindungsstatus'
+                        font_size: '30sp'
+                        size_hint: .8, .8
+                    MDCheckbox:
+                        size: "20dp","20dp"
+                        size_hint: .2, .8
+                    #MDSwitch:
+                        #width: dp(64)
+                        #size_hint: .2, .8
+                MDIconButton:
+                    icon: "logout"
+                    user_font_size: "70sp"
+                    on_press:
+                        root.manager.current = "menu"
+                        root.manager.transition.direction = "right"

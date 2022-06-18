@@ -47,6 +47,14 @@ class SettingsScreen(Screen):
     def manipulator_move(self, msg):
         mqtt_client.publish(mqtt_client.TOPIC_MANIPULATOR, msg)
         print("published to manipulator: " + msg)
+    
+    def raspberry_shutdown(self):
+        mqtt_client.publish(mqtt_client.TOPIC_MANIPULATOR, 'shutdown')
+        print('raspberry shutdown')
+
+    broker_address = mqtt_client.BROKER_ADDRESS
+    client_name = mqtt_client.USERNAME
+    connection_status = mqtt_client.client.connected
 
 class ManuelScreen(Screen):
     pass
@@ -67,5 +75,5 @@ class MainApp(MDApp):
         return sm
 
 if __name__ == "__main__":
-    #mqtt_client.connect_to_broker()
+    mqtt_client.connect_to_broker()
     MainApp().run()

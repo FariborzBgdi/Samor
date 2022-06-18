@@ -1,3 +1,5 @@
+#:kivy 2.1.0
+
 <MenuScreen>:
     MDBoxLayout:
         ben : ben.text
@@ -152,6 +154,13 @@
                             root.mecanum_move("RR")
                         on_release:
                             root.mecanum_move("ST")
+                # MDIconButton:
+                #     icon: "logout"
+                #     user_font_size: "60sp"
+                #     text: "Zurück zur Auswahl"
+                #     on_press:
+                #         root.manager.current = "menu"
+                #         root.manager.transition.direction = "right"
 
         MDBottomNavigationItem:
             name: "roboterarm"
@@ -285,9 +294,11 @@
                 md_bg_color: app.theme_cls.primary_color
                 size: root.width, root.height
                 orientation: "vertical"
+                size_hint: (1,1)
                 Camera:
                     id: camera
                     resolution: (1920, 1080)
+                    #resolution: (640, 480)
                     height: '48dp'
                     play: False
                 ToggleButton:
@@ -311,7 +322,10 @@
                 size: root.width, root.height
                 orientation: "vertical"
                 Label:
-                    text: 'BROKER_ADDRESS = 192.168.0.1'
+                    text: 'MQTT Broker Address: ' + root.broker_address
+                    font_size: '20sp'
+                Label:
+                    text: 'MQTT Client Name: ' + root.client_name
                     font_size: '20sp'
                 MDBoxLayout:
                     orientation: "horizontal"
@@ -321,7 +335,8 @@
                         size_hint: .8, .8
                     MDSwitch:
                         width: dp(64)
-                        size_hint: .2, .8
+                        size_hint: .1, .8
+                        on_active: root.raspberry_shutdown()
                 MDBoxLayout:
                     orientation: "horizontal"
                     Label:

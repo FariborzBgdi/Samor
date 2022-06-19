@@ -154,13 +154,7 @@
                             root.mecanum_move("RR")
                         on_release:
                             root.mecanum_move("ST")
-                # MDIconButton:
-                #     icon: "logout"
-                #     user_font_size: "60sp"
-                #     text: "Zurück zur Auswahl"
-                #     on_press:
-                #         root.manager.current = "menu"
-                #         root.manager.transition.direction = "right"
+
 
         MDBottomNavigationItem:
             name: "roboterarm"
@@ -222,65 +216,73 @@
                         text: 'Spin grab'
                         font_size: '28sp'
                     Label:
-                        text: 'joint 3'
+                        text: 'Joint 3'
                         font_size: '28sp'
                     Label:
-                        text: 'joint 2'
+                        text: 'Joint 2'
                         font_size: '28sp'
                     Label:
-                        text: 'joint 1'
+                        text: 'Joint 1'
                         font_size: '28sp'
                     Label:
-                        text: 'turntable'
+                        text: 'Turntable'
                         font_size: '28sp'
                 MDBoxLayout:
                     orientation: "vertical"
                     MDIconButton:
                         icon: "arrow-right"
                         user_font_size: "60sp"
-                        size_hint: .8, .5
+                        pos_hint: {'center_x':0.7, 'center_y':0.5}
+                        size_hint: .5, .5
                         on_press:
                             root.manipulator_move("S6-")
                     MDIconButton:
                         icon: "arrow-right"
                         user_font_size: "60sp"
-                        size_hint: .8, .5
+                        size_hint: .5, .5
+                        pos_hint: {'center_x':0.7, 'center_y':0.5}
                         on_press:
                             root.manipulator_move("S5-")
                     MDIconButton:
                         icon: "arrow-down"
                         user_font_size: "60sp"
-                        size_hint: .8, .5
+                        size_hint: .5, .5
+                        pos_hint: {'center_x':0.7, 'center_y':0.5}
                         on_press:
                             root.manipulator_move("S4-")
                     MDIconButton:
                         icon: "arrow-down"
                         user_font_size: "60sp"
-                        size_hint: .8, .5
+                        size_hint: .5, .5
+                        pos_hint: {'center_x':0.7, 'center_y':0.5}
                         on_press:
                             root.manipulator_move("S3-")
                     MDIconButton:
                         icon: "arrow-down"
                         user_font_size: "60sp"
-                        size_hint: .8, .5
+                        size_hint: .5, .5
+                        pos_hint: {'center_x':0.7, 'center_y':0.5}
                         on_press:
                             root.manipulator_move("S2-")
                     MDIconButton:
                         icon: "arrow-right"
                         user_font_size: "60sp"
-                        size_hint: .8, .5
+                        size_hint: .5, .5
+                        pos_hint: {'center_x':0.7, 'center_y':0.5}
                         on_press:
                             root.manipulator_move("S1-")
             MDBoxLayout:
-                orientation: "horizontal"
+                orientation: "vertical"
                 MDIconButton:
                     icon: "play-circle"
                     user_font_size: "60sp"
+                    pos_hint: {'center_x':0.15, 'center_y':0.1}
                     on_press:
                         root.manipulator_move("StartPos")
                 MDIconButton:
                     icon: "power-sleep"
                     user_font_size: "60sp"
+                    pos_hint: {'center_x':0.15, 'center_y':0.1}
                     on_press:
                         root.manipulator_move("Saus")
 
@@ -295,26 +297,25 @@
                 size: root.width, root.height
                 orientation: "vertical"
                 size_hint: (1,1)
-                Camera:
-                    id: camera
-                    resolution: (1920, 1080)
-                    #resolution: (640, 480)
-                    height: '48dp'
-                    play: False
+                # Camera:
+                #     id: camera
+                #     # resolution: (1920, 1080)
+                #     height: '48dp'
+                #     play: False
                 ToggleButton:
                     text: 'Play'
-                    on_press: camera.play = not camera.play
+                    # on_press: camera.play = not camera.play
                     size_hint_y: None
                     height: '48dp'
                 Button:
                     text: 'Capture'
                     size_hint_y: None
                     height: '48dp'
-                    on_press: root.capture()
+                    # on_press: root.capture()
 
         MDBottomNavigationItem:
             name: "settings"
-            text: "Settings/Logout"
+            text: "Settings"
             icon: "cog"
             MDBoxLayout:
                 adaptive_height: True
@@ -324,28 +325,36 @@
                 Label:
                     text: 'MQTT Broker Address: ' + root.broker_address
                     font_size: '20sp'
+                    size_hint: 1, 3
+                    pos_hint: {'center_x':0.5, 'center_y':0.5}
                 Label:
                     text: 'MQTT Client Name: ' + root.client_name
                     font_size: '20sp'
+                    size_hint: 1, 3
+                    pos_hint: {'center_x':0.5, 'center_y':0.5}
                 MDBoxLayout:
                     orientation: "horizontal"
                     Label:
-                        text: 'Raspberry Pi Power'
-                        font_size: '30sp'
-                        size_hint: .8, .8
+                        text: 'Raspberry Pi Power Off'
+                        font_size: '20sp'
+                        size_hint: 1, 2
+                        pos_hint: {'center_x':0.7, 'center_y':0.5}
                     MDSwitch:
                         width: dp(64)
-                        size_hint: .1, .8
+                        size_hint: .1, 2
                         on_active: root.raspberry_shutdown()
+                        pos_hint: {'center_x':0.3, 'center_y':0.5}
                 MDBoxLayout:
                     orientation: "horizontal"
                     Label:
                         text: 'Verbindungsstatus'
-                        font_size: '30sp'
-                        size_hint: .8, .8
+                        font_size: '20sp'
+                        size_hint: 1, 2
+                        pos_hint: {'center_x':0.7, 'center_y':0.5}
                     MDCheckbox:
-                        size: "20dp","20dp"
-                        size_hint: .2, .8
+                        size: "30dp","30dp"
+                        size_hint: .2, .2
+                        pos_hint: {'center_x':0.3, 'center_y':0.5}
                     #MDSwitch:
                         #width: dp(64)
                         #size_hint: .2, .8

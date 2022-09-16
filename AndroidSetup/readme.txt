@@ -1,0 +1,2 @@
+1. Die Anleitung zum Erstellen einer .apk Datei für ein Android Betriebssystem ist hier zu finden: https://buildozer.readthedocs.io/en/latest/quickstart.html
+2. Die mit "buildozer init" generierte Datei "buildozer.spec" mit der in diesem Ordner ersetzen.
